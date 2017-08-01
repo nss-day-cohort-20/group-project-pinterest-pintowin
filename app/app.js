@@ -22,6 +22,11 @@ app.config( ($routeProvider) => {
     templateUrl: 'partials/login.html',
     controller: 'UserController'
   })
+  .when('/boards/view', {
+    templateUrl: 'partials/board-list.html',
+    controller: 'BoardFactory',
+    resolve: {isAuth}
+  })
   .otherwise('/');
 });
 
