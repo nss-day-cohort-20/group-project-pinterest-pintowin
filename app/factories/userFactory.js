@@ -61,3 +61,4 @@ app.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds) {
 
   return {isAuthenticated, getUser, createUser, loginUser, logoutUser};
 });
+
