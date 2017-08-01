@@ -4,26 +4,23 @@
   <title>Pin To Win!</title>
 </head>
 <body ng-app="app">
-    <div ng-view></div>
 
+<div ng-view></div>
 
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-    <!-- app -->
-    <script type="text/javascript" src="/app/app.js"></script>
-    <!-- values -->
-    <script type="text/javascript" src="/app/values/fb-creds.js"></script>
-    <!-- factories -->
-    <script type="text/javascript" src="/app/factories/boardFactory.js"></script>
-    <script type="text/javascript" src="/app/factories/pinFactory.js"></script>
-    <script type="text/javascript" src="/app/factories/userFactory.js"></script>
-    <!-- controllers -->
-    <script type="text/javascript" src="/app/controllers/boardController.js"></script>
-    <script type="text/javascript" src="/app/controllers/pinController.js"></script>
-    <script type="text/javascript" src="/app/controllers/userController.js"></script>
+<!-- third party scripts -->
+<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js">
+</script>
+<script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+<!-- apps -->
+<script src="app/app.js"></script>
+<!-- providers -->
+<script src="app/value/fb-creds.js"></script>
+<script src="app/factories/userFactory.js"></script>
+<!-- controllers -->
+<script src="app/controllers/userController.js"></script>
 
 </body>
 </html>
