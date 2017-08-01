@@ -24,3 +24,4 @@ app.config( ($routeProvider) => {
   })
   .otherwise('/');
 });
+
