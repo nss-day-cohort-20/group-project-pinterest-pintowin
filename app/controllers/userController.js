@@ -43,7 +43,7 @@ app.controller("UserController", function($scope, $window, UserFactory) {
   $scope.login = () => {
     UserFactory.loginUser($scope.account)
     .then( (userData) => {
-      $window.location.href = '#!/todos/view';
+      $window.location.href = '#!/boards/view';
     });
   };
   
