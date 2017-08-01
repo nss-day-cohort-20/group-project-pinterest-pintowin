@@ -26,6 +26,7 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl, FBCreds) {
                 });
         });
     };
+
     let postNewBoard = (newBoard) => {
         return $q((resolve, reject) => {
             $http.post(`${FirebaseUrl}boards.json`,
@@ -40,3 +41,4 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl, FBCreds) {
     };
 
 });
+

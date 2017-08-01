@@ -1,7 +1,7 @@
 'use strict';
-
 //will take data from board factory and format the recieved object to be diplayed in the view.
 //has button functionality for adding new boards
+
 
 app.controller("BoardController", function($scope, $window, BoardFactory, UserFactory) {
 
@@ -36,6 +36,7 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
     }
 
     // $scope.formTitle = "Add New Task";
+    $scope.formTitle = "Create board";
     $scope.board = {
         title: "",
         description: "",
