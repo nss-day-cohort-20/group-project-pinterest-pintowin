@@ -1,1 +1,14 @@
 <!-- form for making boards, use ng-click -->
+<div class="col-xs-12">
+  <h1>{{formTitle}}</h1>
+  <div class="form-group">
+    <label>Board Title</label>
+    <input type="text" class="form-control" placeholder="Some text" ng-model="boardItem.title"/>
+  </div>
+  <div class="form-group">
+    <label>Board Description</label>
+    <input type="text" class="form-control" placeholder="Some text" ng-model="boradItem.description"/>
+  </div>
+
+  <button class="btn btn-default" ng-click="saveBoardItem()">Submit</button>
+</div>
