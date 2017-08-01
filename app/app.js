@@ -24,7 +24,7 @@ app.config( ($routeProvider) => {
   })
   .when('/boards/view', {
     templateUrl: 'partials/board-list.html',
-    controller: 'TodoListController',
+    controller: 'BoardFactory',
     resolve: {isAuth}
   })
   .otherwise('/');
