@@ -27,4 +27,18 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl, FBCreds) {
         });
     };
 
+    let postNewBoard = (newBoard) => {
+        return $q((resolve, reject) => {
+            $http.post(`${FirebaseUrl}boards.json`,
+                    angular.toJson(newBoard))
+                .then((newBoardData) => {
+                    resolve(newBoardData);
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    };
+
 });
+

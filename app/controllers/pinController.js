@@ -1,4 +1,19 @@
 'use strict';
 
-//will take data from pin factory and format object to
-//be displayed using the partial. Will include button functionalities users need for adding pins
+app.controller("PinController", function($scope, $window, PinFactory, UserFactory) {
+
+  $scope.title = "";
+  $scope.pin = {
+  	image: "",
+  	description: "",
+    uid: UserFactory.getUser()
+  };
+
+  $scope.saveNewPin = () => {
+   PinFactory.postNewPin($scope.pin)
+    .then( (data) => {
+      console.log("new pin data", data);
+      // $window.location.href = '#!/todos/view';
+    });
+  }; 
+});
