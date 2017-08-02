@@ -1,8 +1,7 @@
 <!-- use ng-click, filter and ng repeat to establish pins in the view. -->
 
-<div ng-controller="PinController">
+<div ng-controller="PinAddController">
 	<input type="text" placeholder="put image URL here" ng-model="pin.image">
 	<input type="text" placeholder="put a description for the image" ng-model="pin.description">
 	<button ng-click="saveNewPin()">Submit</button>
-	<button ng-click="deletePin()">Delete</button>
 </div>
