@@ -25,4 +25,3 @@ app.controller("UserController", function($scope, $window, UserFactory) {
   };
 
 });
-

@@ -44,4 +44,5 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
     });
   };
 
+
 });

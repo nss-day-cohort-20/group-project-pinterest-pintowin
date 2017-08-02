@@ -47,23 +47,10 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
         });
     };
 
-    let getSingleBoard = (boardId) => {
-    return $q( (resolve, reject) => {
-      $http.get(`${FirebaseUrl}pintowin/${boardId}.json`)
-      .then( (board) => {
-        resolve(board.data);
-      })
-      .catch( (err) => {
-        reject(err);
-      });
-    });
-  };
     return {
         getBoardList,
         postNewBoard,
-        deleteBoardItem,
-        getSingleBoard
+        deleteBoardItem
     };
-
 });
 
