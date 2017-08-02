@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("BoardController", function($scope, $q, $window, BoardFactory, UserFactory) {
+app.controller("BoardController", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory) {
 
     let currentUser = null;
 
@@ -37,8 +37,8 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
         });
 
     
-    $scope.addPin = (pinObj) => {
-        //takes the pin object and relates it to the parentboard
+    $scope.addPin = (boardId) => {
+      PinFactory.setBoardId(boardId);
     };
 
     $scope.deleteBoard = (boardId) => {

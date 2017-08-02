@@ -4,9 +4,9 @@ app.controller("PinAddController", function($scope, $window, PinFactory, UserFac
 
   $scope.title = "Create ";
   $scope.pin = {
+    name: "pintowin.FBKey",
   	image: "",
   	description: "",
-    uid: UserFactory.getUser()
   };
 
   $scope.saveNewPin = () => {
