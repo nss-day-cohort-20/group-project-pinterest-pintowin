@@ -37,10 +37,10 @@ app.config( ($routeProvider) => {
     controller: 'PinAddController',
     resolve: {isAuth}
   })
-  .when('/pins/view', {
-    templateUrl: 'partials/pin-list.html',
-    controller: 'PinController',
-    resolve: {isAuth}
-  })
+  // .when('/pins/view', {
+  //   templateUrl: 'partials/pin-list.html',
+  //   controller: 'PinController',
+  //   resolve: {isAuth}
+  // })
   .otherwise('/');
 });
