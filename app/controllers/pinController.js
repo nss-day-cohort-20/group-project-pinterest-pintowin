@@ -13,7 +13,7 @@ app.controller("PinController", function($scope, $window, PinFactory, UserFactor
    PinFactory.postNewPin($scope.pin)
     .then( (data) => {
       console.log("new pin data", data);
-      // $window.location.href = '#!/pins/view';
+      $window.location.href = '#!/pins/view';
     });
   }; 
 });

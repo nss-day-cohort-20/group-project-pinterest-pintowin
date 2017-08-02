@@ -18,7 +18,9 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="!isLoggedIn"><a ng-href="#!/login">Login</a></li>
 
-        <li ng-show="isLoggedIn"><a ng-href="#!/boards/view">Create New Board</a></li>
+        <li ng-show="isLoggedIn"><a ng-href="#!/boards/new">Create New Board</a></li>
+
+        <li ng-show="isLoggedIn"><a ng-href="#!/boards/view">View Boards</a></li>
 
         <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
       </ul>
