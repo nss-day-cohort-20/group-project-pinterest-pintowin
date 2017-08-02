@@ -13,6 +13,7 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
                     console.log("oops", err);
                     reject(err);
                 });
+                // console.log("test", boardData);
         });
     };
 
