@@ -1,5 +1,5 @@
 'use strict';
-                                                         
+
 app.controller("NavController", function($scope, $window, UserFactory) {
 
   $scope.isLoggedIn = false;

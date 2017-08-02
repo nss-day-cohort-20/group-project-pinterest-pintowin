@@ -11,27 +11,29 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
         .then((user) => {
             console.log("isAuthenticated called in board Controller logged user", user);
             currentUser = UserFactory.getUser();
-            // fetchBoards();
+            fetchBoards();
         });
 
-    // function fetchBoards() {
-    //     let boardArr = [];
-    //     console.log("fetchBoards called");
-    //     BoardFactory.getBoardList(currentUser)
-    //         .then((boardList) => {
-    //             console.log("board Data from fetchBoards", boardList);
-    //             let boardData = boardList.data;
-    //             Object.keys(boardData).forEach((key) => {
-    //                 boardData[key].id = key;
-    //                 boardArr.push(boardData[key]);
-    //             });
-    //             $scope.boards = boardArr;
-    //         })
-    //         .catch((err) => {
-    //             console.log("error!", err);
-    //         });
-    // }
-    $scope.addPin = (pinObj) => {
+    function fetchBoards() {
+        console.log("fetchBoards called");
+        BoardFactory.getBoardList(currentUser)
+            .then((boardList) => {
+                // console.log("board Data from fetchBoards", boardList);
+                $scope.boardData = boardList.data;
+                // console.log("boardData", boardData);
+                console.log("objectkey", Object.keys($scope.boardData));
+                Object.keys($scope.boardData).forEach((key) => {
+                    $scope.boardData[key].id = key;
+                    console.log("boardDataKey", $scope.boardData[key].id);
+                    console.log("boardData", $scope.boardData);
+                });
+            })
+            .catch((err) => {
+                console.log("error!", err);
+            });
+
+    }
+    $scope.addPin = (boardId) => {
         //takes the pin object and relates it to the parentboard
     };
 
@@ -40,7 +42,7 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
         title: "",
         description: "",
         // addPin: addPin(pinObj),
-        FirebaseId: "",
+        id: "",
         uid: UserFactory.getUser(),
         // uniqueId: `${$scope.board.uid}${$scope.board.FirebaseId}`
     };

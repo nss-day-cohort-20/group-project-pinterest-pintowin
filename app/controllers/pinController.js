@@ -15,5 +15,5 @@ app.controller("PinController", function($scope, $window, PinFactory, UserFactor
       console.log("new pin data", data);
       // $window.location.href = '#!/pins/view';
     });
-  }; 
+  };
 });
