@@ -15,23 +15,23 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
         });
 
     function fetchBoards() {
-        let boardArr = [];
         console.log("fetchBoards called");
         BoardFactory.getBoardList(currentUser)
             .then((boardList) => {
-                console.log("board Data from fetchBoards", boardList);
-                let boardData = boardList.data;
-                console.log("boardData", boardData);
-                Object.keys(boardData).forEach((key) => {
-                    boardData[key].FirebaseId = key;
-                    boardArr.push(boardData[key]);
+                // console.log("board Data from fetchBoards", boardList);
+                $scope.boardData = boardList.data;
+                // console.log("boardData", boardData);
+                console.log("objectkey", Object.keys($scope.boardData));
+                Object.keys($scope.boardData).forEach((key) => {
+                    $scope.boardData[key].id = key;
+                    console.log("boardDataKey", $scope.boardData[key].id);
+                    console.log("boardData", $scope.boardData);
                 });
-                $scope.boards = boardArr;
-
             })
             .catch((err) => {
                 console.log("error!", err);
             });
+
     }
     $scope.addPin = (boardId) => {
         //takes the pin object and relates it to the parentboard
@@ -42,7 +42,7 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
         title: "",
         description: "",
         // addPin: addPin(pinObj),
-        FirebaseId: "",
+        id: "",
         uid: UserFactory.getUser(),
         // uniqueId: `${$scope.board.uid}${$scope.board.FirebaseId}`
     };
