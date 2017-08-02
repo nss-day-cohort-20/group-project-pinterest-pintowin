@@ -4,7 +4,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
 
   let postNewPin = (newPin) => {
     return $q((resolve, reject) => {
-      $http.post(`${FirebaseUrl}/pintowin/pins.json`, JSON.stringify(newPin))
+      $http.post(`${FirebaseUrl}/pins.json`, JSON.stringify(newPin))
         .then((objFb) => {
           resolve(objFb);
         })
@@ -17,7 +17,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
   let getPins = (boardId) => {
     let pins = [];
     return $q((resolve, reject) => {
-      $http.get(`${FirebaseUrl}/pintowin/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+      $http.get(`${FirebaseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
         .then((objFb) => {
           Object.keys(objFb).forEach((key) => {
             objFb[key].id = key;
@@ -38,7 +38,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
 
   let deletePin = (pinId) => {
     return $q((resolve, reject) => {
-      $http.delete(`${FirebaseUrl}/pintowin/pins/${pinId}.json`)
+      $http.delete(`${FirebaseUrl}/pins/${pinId}.json`)
         .then(() => {
           resolve();
         })
