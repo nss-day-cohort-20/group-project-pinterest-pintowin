@@ -36,7 +36,7 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
             fetchBoards();
         });
 
-    
+
     $scope.addPin = (pinObj) => {
         //takes the pin object and relates it to the parentboard
     };
