@@ -1,9 +1,5 @@
 'use strict';
 
-// FBCreds info to Here
-// Board Creation form data from user input.
-// post to firebase
-
 app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
 
     let getBoardList = (userId) => {
@@ -19,6 +15,23 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
                 });
         });
     };
+
+    let deleteBoardItem = (boardId) => {
+    console.log("userId", boardId);
+    return $q( (resolve, reject) => {
+      if (boardId) {
+        $http.delete(`${FirebaseUrl}pintowin/${boardId}.json`)
+        .then( (data) => {
+          resolve(data);
+        })
+        .catch( (err) => {
+          reject(err);
+        });
+      } else {
+        console.log("No id passed in");
+      }
+    });
+  };
 
     let postNewBoard = (newBoard) => {
         return $q((resolve, reject) => {
@@ -36,8 +49,8 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
 
     return {
         getBoardList,
-        postNewBoard
+        postNewBoard,
+        deleteBoardItem
     };
-
 });
 

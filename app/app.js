@@ -23,8 +23,13 @@ app.config( ($routeProvider) => {
     controller: 'UserController'
   })
   .when('/boards/view', {
-    templateUrl: 'partials/new-board.html',
+    templateUrl: 'partials/board-list.html',
     controller: 'BoardController',
+    resolve: {isAuth}
+  })
+  .when('/boards/new', {
+    templateUrl: 'partials/new-board.html',
+    controller: 'BoardAddController',
     resolve: {isAuth}
   })
   // .when('/')

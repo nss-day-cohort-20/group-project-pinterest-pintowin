@@ -1,7 +1,4 @@
 'use strict';
-//will take data from board factory and format the recieved object to be diplayed in the view.
-//has button functionality for adding new boards
-
 
 app.controller("BoardController", function($scope, $window, BoardFactory, UserFactory) {
 
@@ -33,28 +30,19 @@ app.controller("BoardController", function($scope, $window, BoardFactory, UserFa
             });
 
     }
-    $scope.addPin = (boardId) => {
+    
+    $scope.addPin = (pinObj) => {
         //takes the pin object and relates it to the parentboard
     };
 
-    $scope.formTitle = "Create board";
-    $scope.board = {
-        title: "",
-        description: "",
-        // addPin: addPin(pinObj),
-        id: "",
-        uid: UserFactory.getUser(),
-        // uniqueId: `${$scope.board.uid}${$scope.board.FirebaseId}`
-    };
+    $scope.deleteBoard = (boardId) => {
+    console.log("delete called", boardId);
+    BoardFactory.deleteBoardItem(boardId)
+    .then( (data) => {
+      console.log("removed item", data);
+      fetchBoards(currentUser);
+    });
+  };
 
-    $scope.saveBoard = () => {
-                console.log("new board data");
-        BoardFactory.postNewBoard($scope.board)
-            .then((data) => {
-                // console.log("new board data", data);
-                $window.location.href = '#!/boards/view';
-            });
-
-    };
 
 });
