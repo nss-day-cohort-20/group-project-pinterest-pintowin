@@ -38,20 +38,6 @@ app.factory("UserFactory", function($q, $http, FirebaseUrl, FBCreds) {
       console.log("error", err.message);
     });
   };
-    //   let createUser = (userObj) => {
-    //     return $q((resolve, reject) => {
-    //         $http.post(`${FirebaseUrl}users.json`, JSON.stringify(userObj))
-    //             .then((userObject) => {
-    //                 firebase.auth().createUserWithEmailAndPassword(userObject.email, userObject.password)
-    //                     .then((data) => {
-    //                         resolve(data);
-    //                     }).catch((err) => { // TODO: post to firebase the users as they are added
-    //                         console.log("error", err.message);
-    //                     });
-    //             });
-
-    //     });
-    // };//experimental
   let loginUser = (userObj) => {
     return $q( (resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
