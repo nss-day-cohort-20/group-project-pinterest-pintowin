@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller("BoardController", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory) {
+app.controller("Boards-View-Controller", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory, $routeParams) {
     // Route params stuff because I think I need to "cross streams" to "fix" it. UGGGGGHHHH!
     let currentUser = null;
-
+    let boardId = $routeParams.boardId;
     let fetchBoards = () => {
         console.log("fetchBoards called");
         return $q((resolve, reject) => {
@@ -49,8 +49,9 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
                 fetchBoards(currentUser);
             });
     };
+
     $scope.viewBoard = (boardId) => {
         console.log("viewBoard clicked");
-
+        $window.location.href = `#!/boards/${boardId}`;
     };
 });
