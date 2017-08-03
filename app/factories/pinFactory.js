@@ -9,6 +9,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
       $http.post(`${FirebaseUrl}pins.json`, JSON.stringify(newPin))
         .then((objFb) => {
           resolve(objFb);
+          // console('objFb', objFb);
         })
         .catch((err) => {
           reject(err);
@@ -35,6 +36,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
             objFb[key].id = key;
             pins.push(objFb[key]);
           });
+          console.log("PinObj", objFb);
           // Sorting the pins by inde x
           // Docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
           pins.sort(function(a, b) {
