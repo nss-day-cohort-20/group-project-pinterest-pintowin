@@ -24,7 +24,7 @@ app.config( ($routeProvider) => {
   })
   .when('/boards/view', {
     templateUrl: 'partials/board-list.html',
-    controller: 'BoardController',
+    controller: 'Board-View-Controller',
     resolve: {isAuth}
   })
   .when('/boards/new', {
@@ -39,7 +39,7 @@ app.config( ($routeProvider) => {
   })
   .when('/boards/:boardId', {
     templateUrl: 'partials/pin-list.html',
-    controller: 'PinController',
+    controller: 'BoardController',
     resolve: {isAuth}
   })
   .when('/pins/:pinId', {
