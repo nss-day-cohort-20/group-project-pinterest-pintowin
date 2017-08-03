@@ -1,10 +1,10 @@
 'use strict';
 
 app.controller("BoardController", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory) {
-// Route params stuff because I think I need to "cross streams" to "fix" it. UGGGGGHHHH! 
+    // Route params stuff because I think I need to "cross streams" to "fix" it. UGGGGGHHHH!
     let currentUser = null;
 
-  let fetchBoards = () => {
+    let fetchBoards = () => {
         console.log("fetchBoards called");
         return $q((resolve, reject) => {
             BoardFactory.getBoardList(currentUser)
@@ -26,8 +26,8 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
                     console.log("oops", err);
                     reject(err);
                 });
-                });
-        };
+        });
+    };
 
     UserFactory.isAuthenticated()
         .then((user) => {
@@ -35,20 +35,22 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
             currentUser = UserFactory.getUser();
             fetchBoards();
         });
-    
+
     $scope.addPin = (boardId) => {
-      PinFactory.setBoardId(boardId);
-      console.log("boardId in addPin", boardId);
+        PinFactory.setBoardId(boardId);
+        console.log("boardId in addPin", boardId);
     };
 
     $scope.deleteBoard = (boardId) => {
-    console.log("delete called", boardId);
-    BoardFactory.deleteBoardItem(boardId)
-    .then( (data) => {
-      console.log("removed item", data);
-      fetchBoards(currentUser);
-    });
-  };
+        console.log("delete called", boardId);
+        BoardFactory.deleteBoardItem(boardId)
+            .then((data) => {
+                console.log("removed item", data);
+                fetchBoards(currentUser);
+            });
+    };
+    $scope.viewBoard = (boardId) => {
+        console.log("viewBoard clicked");
 
-
+    };
 });
