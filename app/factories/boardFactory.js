@@ -7,13 +7,13 @@ app.factory('BoardFactory', function($q, $http, FirebaseUrl) {
         return $q((resolve, reject) => {
             $http.get(`${FirebaseUrl}pintowin.json?orderBy="uid"&equalTo="${userId}"`)
                 .then((boardData) => {
+                    console.log("test", boardData);
                     resolve(boardData);
                 })
                 .catch((err) => {
                     console.log("oops", err);
                     reject(err);
                 });
-                // console.log("test", boardData);
         });
     };
 
