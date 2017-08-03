@@ -27,6 +27,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
 
   let getPins = (boardId) => {
     let pins = [];
+    console.log("boardId", boardId);
     return $q((resolve, reject) => {
       $http.get(`${FirebaseUrl}pins.json?orderBy="boardId"&equalTo="${boardId}"`)
         .then((objFb) => {
