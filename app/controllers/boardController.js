@@ -1,16 +1,20 @@
+
 'use strict';
 
-app.controller("BoardController", function($scope.RouteParams, BoardFactory, PinFactory) {
+app.controller("BoardController", function($scope, $q, $http, $routeParams, FirebaseUrl, BoardFactory, PinFactory) {
   let boardId = $routeParams.boardId;
 
-  BoardFactory.getSingleBoard(boardId)
-    .then(oneBoardId) {
-      $http.get(`${FirebaseUrl}pins?orderBy="boardId"&equalTo="${oneBoardId}"`)
-    };
-    PinFactory.getPins(pins);
-
-    $scope. = (boardId) => {
-        PinFactory.setBoardId(boardId);
-        console.log("boardId in addPin", boardId);
-    }
+  let fetchPins = () => {
+    return $q((resolve, reject) => {
+        BoardFactory.getSingleBoard(boardId)
+          .then((oneBoardId) => {
+            $http.get(`${FirebaseUrl}pins?orderBy="boardId"&equalTo="${oneBoardId}"`);
+            resolve(boardId);
+          });
+      })
+      .catch((err) => {
+        // console.log("oops", err);
+        // reject(err);
+      });
+  };
 });
