@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller("Boards-View-Controller", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory, $routeParams) {
+app.controller("BoardsViewController", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory, $routeParams) {
     // Route params stuff because I think I need to "cross streams" to "fix" it. UGGGGGHHHH!
     let currentUser = null;
     let boardId = $routeParams.boardId;
