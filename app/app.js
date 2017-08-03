@@ -24,7 +24,7 @@ app.config( ($routeProvider) => {
   })
   .when('/boards/view', {
     templateUrl: 'partials/board-list.html',
-    controller: 'Board-View-Controller',
+    controller: 'BoardsViewController',
     resolve: {isAuth}
   })
   .when('/boards/new', {
