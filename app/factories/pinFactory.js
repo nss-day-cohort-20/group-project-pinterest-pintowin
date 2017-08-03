@@ -19,7 +19,11 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
   let setBoardId = (boardId) => {
     currentBoardId = boardId;
     console.log("?", currentBoardId);
-  }; 
+  };
+
+  let getBoardId = () => {
+    return currentBoardId;
+  };
 
   let getPins = (boardId) => {
     let pins = [];
@@ -60,6 +64,7 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
     postNewPin,
     getPins,
     deletePin,
-    setBoardId
+    setBoardId,
+    getBoardId
   };
 });

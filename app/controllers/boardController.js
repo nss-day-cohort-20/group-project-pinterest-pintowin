@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller("BoardController", function($scope, $q, $window, BoardFactory, UserFactory, PinFactory) {
-
+// Route params stuff because I think I need to "cross streams" to "fix" it. UGGGGGHHHH! 
     let currentUser = null;
 
   let fetchBoards = () => {
@@ -39,6 +39,7 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
     
     $scope.addPin = (boardId) => {
       PinFactory.setBoardId(boardId);
+      console.log("boardId in addPin", boardId);
     };
 
     $scope.deleteBoard = (boardId) => {
