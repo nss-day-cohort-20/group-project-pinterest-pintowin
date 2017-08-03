@@ -6,7 +6,6 @@ app.controller("BoardAddController", function($scope, $window, BoardFactory, Use
     $scope.board = {
         title: "",
         description: "",
-        // addPin: addPin(pinObj),
         uid: UserFactory.getUser()
     };
 

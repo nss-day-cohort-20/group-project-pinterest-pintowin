@@ -1,6 +1,8 @@
 "use strict";
 
 app.factory('PinFactory', function($q, $http, FirebaseUrl) {
+  
+  let currentBoardId;
 
   let postNewPin = (newPin) => {
     return $q((resolve, reject) => {
@@ -12,6 +14,15 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
           reject(err);
         });
     });
+  };
+
+  let setBoardId = (boardId) => {
+    currentBoardId = boardId;
+    console.log("?", currentBoardId);
+  };
+
+  let getBoardId = () => {
+    return currentBoardId;
   };
 
   let getPins = (boardId) => {
@@ -52,6 +63,8 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
   return {
     postNewPin,
     getPins,
-    deletePin
+    deletePin,
+    setBoardId,
+    getBoardId
   };
 });

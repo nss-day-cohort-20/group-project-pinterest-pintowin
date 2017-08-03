@@ -4,16 +4,16 @@ app.controller("PinAddController", function($scope, $window, PinFactory, UserFac
 
   $scope.title = "Create ";
   $scope.pin = {
-  	image: "",
-  	description: "",
-    uid: UserFactory.getUser()
+    boardId: PinFactory.getBoardId(),
+    image: "",
+    description: "",
   };
 
   $scope.saveNewPin = () => {
-   PinFactory.postNewPin($scope.pin)
-    .then( (data) => {
-      console.log("new pin data", data);
-      $window.location.href = '#!/pins/view';
-    });
+    PinFactory.postNewPin($scope.pin)
+      .then((data) => {
+        console.log("new pin data", data);
+        $window.location.href = '#!/pins/view';
+      });
   };
 });
