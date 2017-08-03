@@ -1,7 +1,7 @@
 "use strict";
 
 app.factory('PinFactory', function($q, $http, FirebaseUrl) {
-  
+
   let currentBoardId;
 
   let postNewPin = (newPin) => {
@@ -62,12 +62,27 @@ app.factory('PinFactory', function($q, $http, FirebaseUrl) {
         });
     });
   };
+  let getSinglePin = (pinId) => {
+        console.log("PinId for getSinglePin", pinId);
+        return $q((resolve, reject) => {
+            $http.get(`${FirebaseUrl}pins/${pinId}.json`)
+            .then((onePin) => {
+                resolve(onePin);
+            })
+            .catch((err) => {
+                console.log("errorGetSinglePin", err);
+                reject(err);
+            });
+        });
+
+    };
 
   return {
     postNewPin,
     getPins,
     deletePin,
     setBoardId,
-    getBoardId
+    getBoardId,
+    getSinglePin
   };
 });

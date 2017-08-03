@@ -2,7 +2,7 @@
 
 app.controller("BoardAddController", function($scope, $window, BoardFactory, UserFactory) {
 
-  $scope.formTitle = "Create board";
+    $scope.formTitle = "Create board";
     $scope.board = {
         title: "",
         description: "",
