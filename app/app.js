@@ -38,11 +38,11 @@ app.config( ($routeProvider) => {
     resolve: {isAuth}
   })
   .when('/boards/:boardId', {
-    templateUrl: 'partials/pin-view.html',
-    controller: 'BoardController',
+    templateUrl: 'partials/pin-list.html',
+    controller: 'PinController',
     resolve: {isAuth}
   })
-  .when('/boards/:pinId', {
+  .when('/pins/:pinId', {
     templateUrl: 'partials/each-pin.html',
     controller: 'PinController',
     resolve: {isAuth}

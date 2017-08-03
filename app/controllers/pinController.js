@@ -19,3 +19,4 @@ app.controller('PinController', function($scope, $q, $window, PinFactory, BoardF
     });
   };
 });
+
