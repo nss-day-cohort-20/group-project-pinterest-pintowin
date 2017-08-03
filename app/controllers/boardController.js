@@ -35,7 +35,6 @@ app.controller("BoardController", function($scope, $q, $window, BoardFactory, Us
             currentUser = UserFactory.getUser();
             fetchBoards();
         });
-
     
     $scope.addPin = (boardId) => {
       PinFactory.setBoardId(boardId);
