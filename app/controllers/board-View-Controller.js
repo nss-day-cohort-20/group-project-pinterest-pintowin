@@ -53,5 +53,6 @@ app.controller("BoardsViewController", function($scope, $q, $window, BoardFactor
     $scope.viewBoard = (boardId) => {
         console.log("viewBoard clicked");
         $window.location.href = `#!/boards/${boardId}`;
+        
     };
 });
