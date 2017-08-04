@@ -1,13 +1,13 @@
 <!-- pinnned items view -->
 <div class="row">
 
-  <h1>My Boards</h1>
+  <h1>My Pins</h1>
+<div class="viewPins"><button ng-click="getPinsByBoard()">Test</button></div>
 
-  <div ng-repeat="board in boardData">
+  <div ng-repeat="pins in pinObj">
     <div class="col-sm-4">
       <div class="card">
           <div class="card-block">
-          <div class="viewBoard"><button ng-click="viewBoard(boardId)"></button></div>
           </div>
       </div>
     </div>
