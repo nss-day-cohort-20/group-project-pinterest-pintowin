@@ -1,5 +1,5 @@
 'use strict';
-app.controller('BoardController', function($scope, $q, $window, PinFactory, BoardFactory, $routeParams) {
+app.controller('PinController', function($scope, $q, $window, PinFactory, BoardFactory, $routeParams) {
     let boardId = $routeParams.boardId;
     let fetchPins = () => {
         return $q((resolve, reject) => {
